@@ -1,0 +1,15 @@
+CREATE OR REPLACE VIEW view_fin_cheques_em_ser AS 
+ SELECT concat(cc.id, t.id) AS id,
+    cc.id AS id_conta_caixa,
+    cc.nome AS nome_conta_caixa,
+    t.id AS id_talao,
+    t.talao,
+    t.numero AS numero_talao,
+    t.status_talao,
+    c.id AS id_cheque,
+    c.numero AS numero_cheque,
+    c.status_cheque
+   FROM conta_caixa cc,
+    talonario_cheque t,
+    cheque c
+  WHERE c.id_talonario_cheque = t.id AND t.id_conta_caixa = cc.id AND c.status_cheque = 'E'::bpchar;

@@ -1,0 +1,669 @@
+{*******************************************************************************
+Title: T2Ti ERP
+Description: Change-log-DER_Unificado
+
+The MIT License
+
+Copyright: Copyright (C) 2010 T2Ti.COM
+
+Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation
+files (the "Software"), to deal in the Software without
+restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+
+       The author may be contacted at:
+           t2ti.com@gmail.com</p>
+
+@author Albert Eije
+@version 1.0
+*******************************************************************************}
+
+{******************************************************************************
+|* T2TiERP - DER Unificado
+|*
+|* PROPÓSITO: Registro de Alterações
+******************************************************************************}
+
+Símbolo : Significado
+
+[+]     : Novo recurso (tabela/campo/relacionamento)
+[*]     : Recurso modificado/melhorado (tabela/campo/relacionamento)
+[-]     : Remoção de recurso (tabela/campo/relacionamento)
+
+
+Versão 1.0.0.31 - 02/08/2013
+[+] Tabela ADM_PARAMETRO adicionada.	
+
+
+Versão 1.0.0.30 - 01/08/2013
+[+] Tabelas ECF_SINTEGRA_60M e ECF_SINTEGRA_60A adicionadas. Dados devem ser importados dos
+	bancos de dados locais dos caixas.
+
+
+Versão 1.0.0.29 - 28/06/2013
+[+] Tabela COLABORADOR. Incluídos os campos CAGED_APRENDIZ e CAGED_DEFICIENCIA.
+[+] Tabela NIVEL_FORMACAO. Incluídos os campos GRAU_INSTRUCAO_SEFIP e GRAU_INSTRUCAO_RAIS.
+[*] Tabela NIVEL_FORMACAO. Campo NOME alterado para VARCHAR(100).
+[-] Removido vínculo entre PESSOA e SINDICATO.
+[+] Tabela SINDICATO. Incluídos os campos NOME, PISO_SALARIAL e CNPJ.
+[*] Tabela SALARIO_MINIMO alterada. Excluidos os campo COMPETENCIA e VALOR.
+	Incluídos os campos VIGENCIA, VALOR_MENSAL, VALOR_DIARIO, VALOR_HORA, NORMA_LEGAL e DOU
+
+	
+Versão 1.0.0.28 - 29/05/2013
+[-] Removido vínculo entre PESSOA e OPERADORA_PLANO_SAUDE.
+[+] Tabela OPERADORA_PLANO_SAUDE. Incluído o campo NOME.
+[*] Tabela FERIAS_PERIODO_AQUISITIVO. Campo DATA_FIM alterado de INT para DATE.
+
+
+Versão 1.0.0.27 - 24/05/2013
+[-] Tabelas CONTABIL_LANCA_PROGRAMADO_CAB e CONTABIL_LANCA_PROGRAMADO_DET removidas.
+	[O lançamento é feito normalmente na tabela CONTABIL_LANCAMENTO pertencendo a um lote com o campo PROGRAMADO marcado como "S". 
+	Os lotes serão liberados pelo contador ou colaborador capacitado para tal - campo LIBERADO.]
+[-] Tabela CONTABIL_DRE_VINCULO removida.
+[+] Tabela CONTABIL_LIVRO. Incluidos os campos COMPETENCIA e FORMA_ESCRITURACAO.
+[-] Tabela EMPRESA_PLANO removida.
+[+] Adicionado relacionamento entre EMPRESA e PLANO_CONTA.
+[+] Adicionado relacionamento entre EMPRESA e PLANO_CENTRO_RESULTADO.
+[+] Adicionado relacionamento entre EMPRESA e PLANO_NATUREZA_FINANCEIRA.
+[+] Tabela CONTABIL_LANCAMENTO_CABECALHO. Adicionado campo VALOR.
+
+
+Versão 1.0.0.26 - 20/05/2013
+[+] Adicionado relacionamento entre EMPRESA e NFE_CONFIGURACAO.
+[+] Adicionado relacionamento entre EMPRESA e NFE_NUMERO.
+[+] Tabela NFE_EMITENTE. Adicionado o campo SUFRAMA.
+[*] Tabela NFE_CUPOM_FISCAL_REFERENCIADO. Reinseridos os campos DATA_EMISSAO_CUPOM, NUMERO_CAIXA, NUMERO_SERIE_ECF.
+[+] Tabela ECF_NOTA_FISCAL_CABECALHO. Incluído o campo CPF_CNPJ_CLIENTE.
+[*] Tabela NFE_NF_REFERENCIADA. Campo CODIGO_UF alterado para INTEGER.
+[*] Tabela NFE_PROD_RURAL_REFERENCIADA. Campo CODIGO_UF alterado para INTEGER.
+[+] Tabela FISCAL_PAR_FEDERAL. Incluído campo ATIVIDADE_SIMPLES. 
+[-] Tabela FISCAL_PAR_FEDERAL. Removidos campos ATIV_SIMPLES_COMERCIO, ATIV_SIMPLES_INDUSTRIA, ATIV_SIMPLES_SERVICO_3,	
+	ATIV_SIMPLES_SERVICO_4, ATIV_SIMPLES_SERVICO_5.
+[*] Tabela FISCAL_PAR_FEDERAL. Campo SIMPLES_NACIONAL_CABECALHO alterado para SIMPLES_TABELA. 
+[+] Tabela FISCAL_PAR_ESTADUAL. Incluído o campo PERFIL_SPED.
+[*] Tabela FISCAL_PAR_MUNICIPAL. Campo CALC_ISS_TABELA_MUN alterado para FORMA_CALCULO_ISS.
+[+] Tabela FISCAL_APURACAO_ICMS adicionada.
+[-] Tabela FISCAL_PAR_IMPOSTOS removida.
+[-] Tabela FISCAL_PAR_FEDERAL. Removidos campos CRT, TIPO_REGIME, PRESTA_SERVICO_LP_16, FILIAL_POSSUI_FILIAIS,
+	RETENCAO_CRF, RETENCAO_IRRF, RETENCAO_CRFOP, RETENCAO_IRRFP.
+[*] Tabela FISCAL_NOTA_FISCAL_CAB. Nome alterado para FISCAL_NOTA_FISCAL_ENTRADA.
+[+] Adicionado relacionamento (1:1) entre NFE_CABECALHO e FISCAL_NOTA_FISCAL_ENTRADA.
+[-] Tabela FISCAL_EMITENTE_DESTINATARIO removida.
+[-] Tabela FISCAL_NOTA_FISCAL_CF removida.
+[-] Tabela FISCAL_NOTA_FISCAL_DET removida.
+[-] Tabela FISCAL_NOTA_FISCAL_ENTRADA. Removidos todos os campos.
+[+] Tabela FISCAL_NOTA_FISCAL_ENTRADA. Adicionados os campos:
+	CFOP_ENTRADA, VALOR_RATEIO_FRETE, VALOR_CUSTO_MEDIO, VALOR_ICMS_ANTECIPADO, 
+    VALOR_BC_ICMS_ANTECIPADO, VALOR_BC_CREDITO_ICMS, VALOR_BC_PIS_CREDITADO,
+    VALOR_BC_COFINS_CREDITADO, VALOR_BC_IPI_CREDITADO,
+    CST_CREDITO_ICMS, CST_CREDITO_PIS, CST_CREDITO_COFINS, CST_CREDITO_IPI,
+    VALOR_ICMS_CREDITADO, VALOR_PIS_CREDITADO, VALOR_COFINS_CREDITADO,
+    VALOR_IPI_CREDITADO, QTDE_PARCELA_CREDITO_PIS, QTDE_PARCELA_CREDITO_COFINS,
+    QTDE_PARCELA_CREDITO_ICMS, QTDE_PARCELA_CREDITO_IPI,
+    ALIQUOTA_CREDITO_ICMS, ALIQUOTA_CREDITO_PIS, ALIQUOTA_CREDITO_COFINS,
+    ALIQUOTA_CREDITO_IPI
+[+] Tabela FISCAL_NOTA_FISCAL_SAIDA adicionada.
+[+] Adicionado relacionamento (1:1) entre NFE_CABECALHO e FISCAL_NOTA_FISCAL_SAIDA.
+[-] Tabela FISCAL_INDICE removida.
+[-] Tabela FISCAL_INDICE_VALOR removida.
+[*] Tabela FORNECEDOR. Campo PRAZO_MEDIO_ENTEGRA alterado para PRAZO_MEDIO_ENTREGA.
+[*] Unificação dos campos das tabelas FISCAL_PAR_FEDERAL, FISCAL_PAR_ESTADUAL e FISCAL_PAR_MUNICIPAL
+	na tabela FISCAL_PARAMETROS.
+[+] Tabela FISCAL_PARAMETROS. Adicionado o campo CRITERIO_LANCAMENTO.
+[-] Tabela FISCAL_FECHAMENTO removida.
+
+
+Versão 1.0.0.25 - 17/04/2013
+[*] Tabela FORNECEDOR. Campo NUMERO_DIAS_PRIMEIRO_VENCIMENTO alterado para NUM_DIAS_PRIMEIRO_VENCIMENTO.
+[*] Tabela FORNECEDOR. Campo NUMERO_DIAS_INTERVALO alterado para NUM_DIAS_INTERVALO.
+[*] Tabela NFE_CABECALHO. Campo DATA_ENTRADA_CONTINGENCIA alterado para TimeStamp.
+[-] Tabela TRIBUT_OPERACAO_FISCAL. Campo MENSAGEM_FISCAL excluído. 
+[*] Tabela TRIBUT_OPERACAO_FISCAL. Campo COMENTARIO alterado para OBSERVACAO. 
+[*] Tabela TRIBUT_GRUPO_TRIBUTARIO. Campo COMENTARIO alterado para OBSERVACAO. 
+[-] Tabela TRIBUT_ICMS removida.
+[-] Tabela TRIBUT_COFINS removida.
+[-] Tabela TRIBUT_IPI removida.
+[-] Tabela TRIBUT_PIS removida.
+[-] Tabela CFOP. Removidos os campos: MOVIMENTA_ESTOQUE, TIPO_OPERACAO, ORIGEM, ALTERA_CUSTO_PRODUTO, MOVIMENTA_FINANCEIRO, PERMITE_CREDITO_ICMS,
+	PERMITE_CREDITO_IPI, PERMITE_CREDITO_PIS, PERMITE_CREDITO_COFINS
+[*] Tabela TRIBUT_ICMS_UF. Campo CST_ICMS_B alterado para CST_B.
+[-] Tabela TRIBUT_IMPOSTO_ICMS removida.
+[-] Tabela PRODUTO. Campo TAXA_IPI removido.
+[-] Tabela PRODUTO. Campo TAXA_PIS removido.
+[-] Tabela PRODUTO. Campo TAXA_COFINS removido.
+[*] Tabela PRODUTO. Campo TAXA_ICMS. Nome alterado para ALIQUOTA_ICMS_PAF.
+[*] Tabela PRODUTO. Campo TAXA_ISSQN. Nome alterado para ALIQUOTA_ISSQN_PAF.
+[+] Tabela TRIBUT_ICMS_CUSTOM_CAB incluída.
+[*] Tabela TRIBUT_ICMS_CUSTOMIZADO. Nome alterado para TRIBUT_ICMS_CUSTOM_DET.
+[+] Tabela PRODUTO_ALTERACAO_ITEM incluída.
+	[Registro 0205 do Sped Fiscal]
+[-] Tabela PRODUTO. Campos ECF_ICMS_ST e PAF_P_ST removidos. Devem ser preenchidos na tabela do PAF com base no conteúdo do campo TOTALIZADOR_PARCIAL.
+	[ECF_ICMS_ST = Situação da Tributação. No caso de ICMS ou ISS a própria alíquota. Ex: para 04T0700 (07) | Para I1 (II) | Para F1 (FF) | Para N1 (NN)]
+	[PAF_P_ST = Letra indicativa da situação da tributação. Ex: para 04T0700 (T) | Para I1 (I) | Para N1 (N) | Para F1 (F) | Para 01S0500 (S)]
+[+] Tabela NFE_CONFIGURACAO incluída.
+[+] Tabela TRIBUT_ISS. Campo ITEM_LISTA_SERVICO adicionado.
+[+] Tabela TRIBUT_ISS. Campo CODIGO_TRIBUTACAO adicionado.
+[+] Tabela EMPRESA. Campo CODIGO_CNAE_PRINCIPAL adicionado.
+	[Demais códigos da empresa devem ser informados na tabela EMPRESA_CNAE]
+[-] Tabela VENDA_CABECALHO. Removidos os campos BASE_CALCULO_ICMS_ST, VALOR_ICMS_ST, VALOR_IPI 
+[-] Tabela VENDA_DETALHE. Removidos os campos BASE_CALCULO_ICMS_ST, VALOR_ICMS_ST, ALIQUOTA_IPI, VALOR_IPI, CMV_APURADO, CST_CSOSN, CFOP 
+[-] Tabela ORCAMENTO_DETALHE. Removidos os campos  VALOR_ICMS_ST, VALOR_IPI
+
+
+Versão 1.0.0.24 - 15/03/2013
+[*] Tabela FORNECEDOR. Campo PRAZO_MEDIO_ENTEGRA alterado para INTEGER.
+[*] Tabela CONTAGEM_ESTOQUE_CABECALHO. Nome alterado para ESTOQUE_CONTAGEM_CABECALHO.
+[*] Tabela CONTAGEM_ESTOQUE_DETALHE. Nome alterado para ESTOQUE_CONTAGEM_DETALHE.
+[*] Tabela LACRE_PRODUTO_ENTRADA. Nome alterado para PRODUTO_LACRE_ENTRADA.
+[*] Tabela LACRE_PRODUTO. Nome alterado para PRODUTO_LACRE.
+[*] Tabela LOTE_PRODUTO. Nome alterado para PRODUTO_LOTE.
+[*] Tabela GRUPO_PRODUTO. Nome alterado para PRODUTO_GRUPO.
+[*] Tabela SUB_GRUPO_PRODUTO. Nome alterado para PRODUTO_SUB_GRUPO.
+[*] Tabela MARCA_PRODUTO. Nome alterado para PRODUTO_MARCA.
+[*] Tabela CODIGO_PRODUTO_ADICIONAL. Nome alterado para PRODUTO_CODIGO_ADICIONAL.
+[*] Tabela HISTORICO_REAJUSTE_CABECALHO. Nome alterado para ESTOQUE_REAJUSTE_CABECALHO.
+[*] Tabela HISTORICO_REAJUSTE_DETALHE. Nome alterado para ESTOQUE_REAJUSTE_DETALHE.
+[+] Tabela MODELO_NOTA_FISCAL adicionada. Contém os modelos definidos no Ato Cotepe 46/10.
+[-] Tabela ESTOQUE removida. Relacionamento direto entre PRODUTO (mãe) e PRODUTO_LOTE (filha).
+[-] Tabela PRODUTO. Campo VALIDADE removido.
+[-] Tabela PRODUTO_LOTE. Campo NOME removido.
+[-] Tabela PRODUTO_LOTE. Campo DESCRICAO removido.
+[*] Tabela PRODUTO_LOTE. Campo DATA_VENCIMENTO alterado para DATA_VALIDADE.
+[+] Tabela PRODUTO_LOTE. Campo QUANTIDADE adicionado.
+[+] Tabela PRODUTO_LOTE. Campo PRECO_MAXIMO_CONSUMIDOR adicionado.
+[+] Tabela REQUISICAO_INTERNA_CABECALHO. Incluído o campo SITUACAO.
+[+] Tabela ESTOQUE_CONTAGEM_CABECALHO. incluído o campo ESTOQUE_ATUALIZADO.
+[+] Tabela CONTADOR. incluído o campo CIDADE.
+[*] Tabela NFE_CABECALHO. Tipo de dados do atributo VERSAO_PROCESSO_EMISSAO alterado para VARCHAR.
+[*] Tabela NFE_DESTINATARIO. Tipo de dados do atributo CRT alterado para CHAR(1).
+[+] Tabela NFE_CABECALHO. Incluído o campo UF_EMITENTE. [cUF - Código da UF do emitente do Documento Fiscal. Utilizar a Tabela do IBGE de código de unidades da federação (Anexo IX - Tabela de UF, Município e País)]
+[+] Tabela NFE_PROD_RURAL_REFERENCIADA adicionada. [Grupo de informações da NF de produtor rural referenciada]
+[+] Tabela NFE_NF_REFERENCIADA adicionada. [Grupo de informação da NF modelo 1/1A referenciada]
+[+] Tabela NFE_CTE_REFERENCIADO adicionada.
+[*] Tabela NFE_CUPOM_FISCAL. Nome alterado para NFE_CUPOM_FISCAL_REFERENCIADO.
+[-] Tabela NFE_CUPOM_FISCAL_REFERENCIADO. Removidos os campos DATA_EMISSAO_CUPOM, NUMERO_CAIXA, NUMERO_SERIE_ECF.
+[+] Tabela NFE_CABECALHO. Inseridos os campos: DATA_ENTRADA_CONTINGENCIA e JUSTIFICATIVA_CONTINGENCIA.
+[-] Tabela NFE_DESTINATARIO. Removido o campo FANTASIA.
+[-] Tabela NFE_DESTINATARIO. Removido o campo IEST.
+[-] Tabela NFE_DESTINATARIO. Removido o campo IM.
+[-] Tabela NFE_DESTINATARIO. Removido o campo CNAE.
+[-] Tabela NFE_DESTINATARIO. Removido o campo CRT.
+[*] Tabela NFE_DETALHE. Campo VALOR_BRUTO_PRODUTOS. Nome alterado para VALOR_BRUTO_PRODUTO.
+[*] Tabela NFE_DETALHE. Campo VALOR_UNITARIO_TRIBUTACAO. Nome alterado para VALOR_UNITARIO_TRIBUTAVEL.
+[*] Tabela NFE_DECLARACAO_IMPORTACAO. Campo NUMERO_DI_DSI_DA. Nome alterado para NUMERO_DOCUMENTO.
+[+] Tabela NFE_DET_ESPECIFICO_VEICULO. Incluído o campo CAPACIDADE_MAXIMA_TRACAO.
+[*] Tabela NFE_DETALHE dividida em 7: 
+	NFE_DETALHE, NFE_DETALHE_IMPOSTO_ICMS, NFE_DETALHE_IMPOSTO_IPI, NFE_DETALHE_IMPOSTO_II, NFE_DETALHE_IMPOSTO_PIS, NFE_DETALHE_IMPOSTO_COFINS, NFE_DETALHE_IMPOSTO_ISSQN
+[*] Tabela NFE_TRANSPORTE dividida em 4: 
+	NFE_TRANSPORTE, NFE_TRANSPORTE_REBOQUE, NFE_TRANSPORTE_VOLUME, NFE_TRANSPORTE_VOLUME_LACRE
+[-] Removido o relacionamento entre NFE_FATURA e NFE_DUPLICATA.
+[+] Incluído relacionamento entre NFE_CABECALHO e NFE_DUPLICATA.
+[+] Tabela NFE_PROCESSO_REFERENCIADO adicionada. [Grupo do processo referenciado]
+[+] Incluído relacionamento entre NFE_CABECALHO e NFE_PROCESSO_REFERENCIADO.
+[*] Tabela NFE_DEDUCOES_SAFRA. Nome alterado para NFE_CANA_DEDUCOES_SAFRA.
+[-] Tabela NFE_DETALHE. Removidos os campos CODIGO_LACRE_PRODUTO e CODIGO_LOTE_PRODUTO.
+
+
+Versão 1.0.0.23 - 20/02/2013
+[*] Tabela PRODUTO. Campo ID_UNIDADE alterado para ID_UNIDADE_PRODUTO.
+[*] Tabela ORCAMENTO_PEDIDO_VENDA_CAB. Nome alterado para VENDA_ORCAMENTO_CABECALHO.
+[*] Tabela ORCAMENTO_PEDIDO_VENDA_DET. Nome alterado para VENDA_ORCAMENTO_DETALHE.
+[*] Tabela FRETE_VENDA. Nome alterado para VENDA_FRETE.
+[*] Tabela ROMANEIO_ENTREGA. Nome alterado para VENDA_ROMANEIO_ENTREGA.
+[+] Tabela VENDA_ROMANEIO_ENTREGA. Adicionado o campo DATA_EMISSAO.
+[+] Tabela VENDA_ROMANEIO_ENTREGA. Adicionado o campo OBSERVACAO.
+[*] Tabela VENDA_COMISSAO. Campo LANCADO alterado para SITUACAO.
+[*] Tabela VENDA_COMISSAO. Campo TIPO_COMISSAO alterado para CHAR(1).
+[-] Tabela VENDEDOR. Removido o campo TIPO_COMISSAO.
+[-] Tabela VENDA_COMISSAO. Removido o campo TIPO_COMISSAO.
+[-] Removida a tabela COMISSAO_RECEBIMENTO. 
+	[O pagamento da comissão não estará vinculado ao recebimento por parte do cliente]
+[*] Tabela CONDICOES_PAGAMENTO. Nome alterado para VENDA_CONDICOES_PAGAMENTO.
+[*] Tabela CONDICOES_PARCELAS. Nome alterado para VENDA_CONDICOES_PAGAMENTO.
+[*] Tabela LANCAMENTO_COMISSAO. Nome alterado para FOLHA_LANCAMENTO_COMISSAO.
+[*] Tabela VENDA_ORCAMENTO_CABECALHO. Campo STATUS_PEDIDO alterado para SITUACAO.
+[*] Tabela VENDA_ROMANEIO_ENTREGA. Campo STATUS_ROMANEIO alterado para SITUACAO.
+[*] Tabela LOG_EXPORTACAO. Campo HORA_EXPORTACAO alterado para VARCHAR(8).
+[*] Tabela LOG_IMPORTACAO. Campo HORA_IMPORTACAO alterado para VARCHAR(8).
+[+] Tabela VENDA_CABECALHO. Incluído o campo SITUACAO.
+
+
+Versão 1.0.0.22 - 31/01/2013
+[*] AGENCIA_BANCO. Campo CODIGO alterado para varchar(10).
+[+] AGENCIA_BANCO. Incluído o campo DIGITO char(1).
+[*] Tabela COLABORADOR. Campo PIS_AGENCIA de Integer para varchar(10).
+[*] Tabela COLABORADOR. Campo PIS_AGENCIA_DIGITO de Integer para char(1).
+[*] Tabela Colaborador. Campo PAGAMENTO_AGENCIA de Integer para varchar(10).
+[*] Tabela Colaborador. Campo PAGAMENTO_AGENCIA_DIGITO de Integer para char(1).
+[*] Tabela Colaborador. Campo PAGAMENTO_CONTA de Integer para varchar(10).
+[*] Tabela Colaborador. Campo PAGAMENTO_CONTA_DIGITO de Integer para char(1).
+[*] Tabela PARCELA_RECEBIMENTO. Campo VALOR_PAGO para VALOR_RECEBIDO.
+[*] Tabela STATUS_PARCELA. Nome renomeado para FIN_STATUS_PARCELA.
+[*] Tabela DOCUMENTO_ORIGEM. Nome renomeado para FIN_DOCUMENTO_ORIGEM.
+[*] Tabela LANCAMENTO_PAGAR. Nome renomeado para FIN_LANCAMENTO_PAGAR.
+[-] Tabela FIN_LANCAMENTO_PAGAR. Removido o relacionamento com a tabela PESSOA.
+[+] Tabela FIN_LANCAMENTO_PAGAR. Incluído o relacionamento com a tabela FORNECEDOR.
+[+] Tabela ADM_MODULO adicionada. Os dados dos módulos do ERP serão armazenados nessa tabela.
+[+] Tabela FIN_LANCAMENTO_PAGAR. Adicionados os campos NUMERO_DOCUMENTO, CODIGO_MODULO_LCTO e INTERVALO_ENTRE_PARCELAS.
+[-] Tabela FIN_LANCAMENTO_PAGAR. Removido o campo TIPO_CONTABIL.
+[*] Tabela LANCAMENTO_RECEBER. Nome renomeado para FIN_LANCAMENTO_RECEBER.
+[-] Tabela FIN_LANCAMENTO_RECEBER. Removido o relacionamento com a tabela PESSOA.
+[+] Tabela FIN_LANCAMENTO_RECEBER. Incluído o relacionamento com a tabela CLIENTE.
+[-] Tabela FIN_LANCAMENTO_RECEBER. Removido o relacionamento com a tabela VENDEDOR.
+[-] Tabela FIN_LANCAMENTO_RECEBER. Removido o relacionamento com a tabela VENDA_CABECALHO.
+[-] Tabela FIN_LANCAMENTO_RECEBER. Removido o relacionamento com a tabela EMITENTE_CHEQUE.
+[*] Tabela FIN_LANCAMENTO_RECEBER. Campo NR_DOCUMENTO alterado para NUMERO_DOCUMENTO.
+[*] Tabela FIN_LANCAMENTO_RECEBER. Campo DIAS_INTERVALO alterado para INTERVALO_ENTRE_PARCELAS.
+[*] Tabela FIN_LANCAMENTO_RECEBER. Campo PORCENTO_COMISSAO alterado para TAXA_COMISSAO.
+[+] Tabela FIN_LANCAMENTO_RECEBER. Adicionado o campo CODIGO_MODULO_LCTO.
+[-] Tabela MATRIZ removida.
+[-] Tabela HOLDING_MATRIZ removida.
+[-] Tabela HOLDING removida.
+[+] Tabela EMPRESA. Incluído auto-relacionamento.
+[*] Tabela PARCELA_PAGAR. Nome renomeado para FIN_PARCELA_PAGAR.
+[*] Tabela PARCELA_RECEBER. Nome renomeado para FIN_PARCELA_RECEBER.
+[-] Tabela FIN_PARCELA_RECEBER. Removido o relacionamento com a tabela AGENCIA_BANCO.
+[-] Tabela FIN_PARCELA_RECEBER. Removidos os campos BOLETO e NOSSO_NUMERO.
+[-] Tabela CAIXA_LANCAMENTO_CONTABIL removida.
+[-] Tabela COMPENSACAO_TITULO_DET removida.
+[-] Tabela COMPENSACAO_TITULO_CAB removida.
+[-] Tabela TRANSFERENCIA_TITULO_DET removida.
+[-] Tabela TRANSFERENCIA_TITULO_CAB removida.
+[-] Tabela RECEBIMENTO_LANCA_CONTABIL removida.
+[-] Tabela PAGAMENTO_LANC_CONTABIL removida.
+[*] Tabela TIPO_PAGAMENTO. Nome renomeado para FIN_TIPO_PAGAMENTO.
+[*] Tabela TIPO_RECEBIMENTO. Nome renomeado para FIN_TIPO_RECEBIMENTO.
+[*] Tabela PARCELA_PAGAMENTO. Nome renomeado para FIN_PARCELA_PAGAMENTO.
+[*] Tabela PARCELA_RECEBIMENTO. Nome renomeado para FIN_PARCELA_RECEBIMENTO.
+[*] Tabela CHEQUE_EMITIDO. Nome renomeado para FIN_CHEQUE_EMITIDO.
+[*] Tabela EMITENTE_CHEQUE. Nome renomeado para FIN_CHEQUE_RECEBIDO.
+[+] Tabela FIN_CHEQUE_RECEBIDO. Incluídos os campos NUMERO, DATA_EMISSAO, DATA_COMPENSACAO, VALOR.
+[+] Tabela FIN_CHEQUE_RECEBIDO. Incluído relacionamento com a tabela FIN_PARCELA_RECEBIMENTO.
+[*] Tabela FLUXO_CAIXA_PERIODO. Nome renomeado para ORCAMENTO_FLUXO_CAIXA_PERIODO.
+[*] Tabela FLUXO_CAIXA. Nome renomeado para ORCAMENTO_FLUXO_CAIXA.
+[*] Tabela FLUXO_CAIXA_DETALHE. Nome renomeado para ORCAMENTO_FLUXO_CAIXA_DETALHE.
+[*] Tabelas FLUXO_CAIXA_PERIODO, FLUXO_CAIXA e FLUXO_CAIXA_DETALHE migradas para o módulo CONTROLE DE ORÇAMENTOS.
+	Essas tabelas armazenarão os dados do chamado ORÇAMENTO FINANCEIRO DE CAIXA.
+[-] Tabela NATUREZA_FINANCEIRA. Removido o relacionamento com a tabela CENTRO_RESULTADO.
+[+] Incluída a tabela CT_RESULTADO_NT_FINANCEIRA. Faz o relacionamento N:M entre NATUREZA_FINANCEIRA e CENTRO_RESULTADO.
+[*] Tabela NATUREZA_FINANCEIRA. Campo DESCRICAO alterado para VARCHAR(100).
+[-] Tabela NATUREZA_FINANCEIRA. Removidos os campos HISTORICO, SINTETICO, SINAL, APARECE_CAIXA, APARECE_PRODUTO, APARECE_ENTRADA, APARECE_TESOURARIA.
+[*] Tabela EXTRATO_CONTA_BANCO. Campo GED_DOCUMENTO renoemado para DOCUMENTO.
+[-] Tabelas BORDERO_CABECALHO e BORDERO_DETALHE removidas.
+[*] Tabela LANC_PAGAR_NAT_FINANCEIRA renomeada para FIN_LCTO_PAGAR_NT_FINANCEIRA.
+[*] Tabela LANC_RECEBER_NAT_FINANCEIRA renomeada para FIN_LCTO_RECEBER_NT_FINANCEIRA.
+[*] Tabela FECHAMENTO_CAIXA_BANCO renomeada para FIN_FECHAMENTO_CAIXA_BANCO.
+[*] Tabela EXTRATO_CONTA_BANCO renomeada para FIN_EXTRATO_CONTA_BANCO.
+[+] Tabela FIN_PARCELA_RECEBER. Incluído o campo EMITIU_BOLETO.
+[+] Tabela FIN_PARCELA_RECEBER. Incluído o campo BOLETO_NOSSO_NUMERO.
+[+] Tabela FIN_CONFIGURACAO_BOLETO incluída.
+[+] Tabela FIN_PARCELA_RECEBER. Incluído relacionamento com a tabela CONTA_CAIXA.
+	[Informa a conta/caixa prevista para o recebimento da parcela]
+[+] Tabela FIN_PARCELA_PAGAR. Incluído relacionamento com a tabela CONTA_CAIXA.
+	[Informa a conta/caixa prevista para o recebimento da parcela]
+[+] Tabela AUDITORIA incluída.
+[+] Tabela CONTA_CAIXA. Incluído o campo DIGITO CHAR(1).
+
+
+Versão 1.0.0.21 - 19/11/2012
+[*] Tabela HOLDING. Campo NOME alterado de Integer para varchar(150)
+[+] Criada a tabela PONTO_BANCO_HORAS_UTILIZACAO.
+[+] Tabela PONTO_TIPO_MARCACAO. Inserido o campo PADRAO para controlar o tipo de marcação padrão da empresa.
+	[Esse campo deverá ser marcado pelo Administrador no módulo Administrativo]
+[+] Criada a tabela PONTO_FECHAMENTO_JORNADA.
+	[Armazena o fechamento de uma jornada de determinado colaborador. É a consolidação dos dados armazenados nas marcações do dia.]
+[-] Relacionamento desfeito entre PONTO_TIPO_MARCACAO e PONTO_MARCACAO.
+[*] Tabela PONTO_TIPO_MARCACAO renomeada para PONTO_CLASSIFICACAO_JORNADA.
+[+] Relacionametno realizado entre PONTO_CLASSIFICACAO_JORNADA e PONTO_FECHAMENTO_JORNADA.
+[+] Tabela PONTO_MARCACAO. Inserido o campo NSR.
+	[Número Sequencial de Registro. Gravado quando os dados forem capturados do arquivo AFD.]
+[*] Tabela SITUCAO_DOCUMENTO. Nome alterado para SITUACAO_DOCUMENTO.
+[*] Tabela EMPRESA. Campo CODIGO_TERCEIROS alterado para Integer.
+[+] Tabela EMPRESA. Inclusão do campo CEI.
+	[Número de inscrição do estabelecimento no Cadastro Específico do INSS]
+[+] Tabela PONTO_HORARIO. Inclusão dos campos HORA_INICIO_JORNADA e HORA_FIM_JORNADA.
+[+] Tabela PONTO_PARAMETRO. Inclusão dos campos TRATAMENTO_HORA_MAIS e TRATAMENTO_HORA_MENOS.
+[+] Tabela PONTO_MARCACAO. Inserido o campo PAR_ENTRADA_SAIDA.
+	[Para cada entrada deve haver uma saída. Esse campo controla isso: (E1/S1, E2/S2, E3/S3)]
+[-] Tabela PONTO_HORARIO. Remoção dos campos CARGA_DIARIA, CARGA_SEMANAL, CARGA_MENSAL, TOLERANCIA_EXTRA, TOLERANCIA_FALTA, NAO_REGISTRAR_GERA, HORA_FECHAMENTO_DIA.
+[+] Tabela PONTO_CLASSIFICACAO_JORNADA. Adicionado o campo DESCONTAR_HORAS.
+	
+
+Versão 1.0.0.20 - 29/10/2012
+[*] Tabela FORNECEDOR. Campos NUMERO_DIAS_PRIMEIRO_VENCIMENTO, NUMERO_DIAS_INTERVALO e QUANTIDADE_PARCELA alterados para Integer.
+[*] Relacionamento criado entre as tabelas CONTRATO_SOLICITACAO_SERVICO e CONTRATO.
+[*] Tabela CONTRATO_SOLICITACAO_SERVICO. Inserido o campo DESCRICAO VARCHAR(100).
+[+] Criada a tabela CONTRATO_TEMPLATE para armazenar os dados dos templates dos contratos.
+
+
+Versão 1.0.0.19 - 22/10/2012
+[*] Tabela PAPEL. Incluido campo ACESSO_COMPLETO do tipo CHAR(1). S=Sim | N=Não 
+	[Se marcado como S o usuário vinculado ao papel terá acesso completo e não precisará ter todas as funções cadastradas no banco de dados]
+[*] Tabela GED_DOCUMENTO. Campos do tipo CHAR estavam sem indicação do tamanho. Corrigido.
+[*] Tabela COMPRA_REQUISICAO_DETALHE. Adicionado o campo QUANTIDADE_COTADA para controlar a quantidade de itens cotados.
+[*] Tabela COMPRA_COTACAO_DETALHE. Adicionado o campo QUANTIDADE_PEDIDA para controlar a quantidade de itens pedidos.
+[*] Relacionamento entre COMPRA_TIPO_REQUISICAO e COMPRA_REQUISICAO atualizado. Nome do campo da chave estrangeira alterado.
+[*] Relacionamento entre COMPRA_REQUISICAO e COMPRA_REQUISICAO_DETALHE atualizado. Nome do campo da chave estrangeira alterado.
+[*] Relacionamento entre COMPRA_REQUISICAO_DETALHE e COMPRA_REQ_COTACAO_DETALHE atualizado. Nome do campo da chave estrangeira alterado.
+[*] Relacionamento entre COMPRA_COTACAO_DETALHE e COMPRA_REQ_COTACAO_DETALHE atualizado. Nome do campo da chave estrangeira alterado.
+[*] Relacionamento entre COMPRA_PEDIDO e COMPRA_PEDIDO_DETALHE atualizado. Nome do campo da chave estrangeira alterado.
+[*] Relacionamento entre COMPRA_PEDIDO_DETALHE e COMPRA_COTACAO_PEDIDO_DETALHE atualizado. Nome do campo da chave estrangeira alterado.
+[*] Relacionamento entre COMPRA_COTACAO_DETALHE e COMPRA_COTACAO_PEDIDO_DETALHE atualizado. Nome do campo da chave estrangeira alterado.
+[*] Relacionamento entre COMPRA_TIPO_PEDIDO e COMPRA_PEDIDO atualizado. Nome do campo da chave estrangeira alterado.
+[*] Relacionamento entre COMPRA_COTACAO e COMPRA_FORNECEDOR_COTACAO atualizado. Nome do campo da chave estrangeira alterado.
+[*] Relacionamento entre COMPRA_FORNECEDOR_COTACAO e COMPRA_COTACAO_DETALHE atualizado. Nome do campo da chave estrangeira alterado.
+[*] Retirado o relacionamento entre COMPRA_COTACAO_DETALHE e COMPRA_REQ_COTACAO_DETALHE.
+[*] Criado o relacionamento entre COMPRA_COTACAO e COMPRA_REQ_COTACAO_DETALHE.
+[*] Retirado o relacionamento entre COMPRA_PEDIDO_DETALHE e COMPRA_COTACAO_PEDIDO_DETALHE.
+[*] Criado o relacionamento entre COMPRA_PEDIDO e COMPRA_COTACAO_PEDIDO_DETALHE.
+[*] Tabela COMPRA_COTACAO. Criado o campo SITUACAO CHAR(1).
+
+
+Versão 1.0.0.18 - 02/10/2012
+[*] Tabela PRODUTO. Incluido campo TIPO do tipo CHAR(1). Tipos VENDA = V | COMPOSICAO = C | PRODUCAO = P | INSUMO = I | USO PROPRIO = U
+[*] Tabela PESSOA_FISICA. Campo CNH_CATEGORIA alterado de CHAR(1) para CHAR(2).
+[*] Tabela NFE_DET_ESPECIFICO_MEDICAMENTO. Nome do Index NFE_DET_ESPECIFICO_MEDICAMENTO alterado para FK_NFE_DET_ESP_MEDICAMENTO.
+[*] Tabela GED_DOCUMENTO. Campo DATA_EXCLUSAO alterado de DATETIME para DATE.
+[*] Tabela NFE_EMITENTE. Campo CRT alterado de INTEGER para CHAR(1). 
+
+
+Versão 1.0.0.17 - 27/09/2012
+-----------------------------
+[+] Tabela FISCAL_TERMO. Inserido o campo ABERTURA_ENCERRAMENTO para indicar o tipo de termo.
+[+] Tabela SIMPLES_NACIONAL_CABECALHO. Inserido o campo TABELA.
+[*] Tabela FISCAL_NOTAS_FISCAIS_CAB. Nome alterado para FISCAL_NOTA_FISCAL_CAB.
+[*] Tabela FISCAL_NOTAS_FISCAIS_DET. Nome alterado para FISCAL_NOTA_FISCAL_DET.
+[*] Tabela FISCAL_NOTAS_FISCAIS_CF. Nome alterado para FISCAL_NOTA_FISCAL_CF.
+[*] Tabela REGISTRO_CARTORIO. Campo NIRE alterado de VARCHAR(50) para VARCHAR(11).
+[*] Tabela ECF_IMPRESSORA. Incluido campo DATA_INSTALACAO_SB.
+[*] Tabela ECF_IMPRESSORA. Incluido campo HORA_INSTALACAO_SB.
+[*] Tabela ECF_IMPRESSORA. Incluido campo ECF_IMPRESSORA.
+
+
+Versão 1.0.0.16 - 14/09/2012
+-----------------------------
+[*] Tabela CONTABIL_CONTA. Retirado o campo ID_CONTA_PAI. Criado o auto-relacionamento.
+[*] Tabela CONTABIL_PARAMETROS. Os seguintes campos foram alterados para VARCHAR(30) para
+	armazenar a classificação da conta:
+	CONTA_ATIVO
+	CONTA_PASSIVO
+	CONTA_PATRIMONIO_LIQUIDO
+	CONTA_DEPRECIACAO_ACUMU. Nome alterado para CONTA_DEPRECIACAO_ACUMULADA.
+	CONTA_CAPITAL_SOCIAL
+	CONTA_RESULTADO_EXER. Nome alterado para CONTA_RESULTADO_EXERCICIO.
+	CONTA_PREJ_ACUM. Nome alterado para CONTA_PREJUIZO_ACUMULADO.
+	ID_CONTA_LUCROS_ACUM. Nome alterado para CONTA_LUCRO_ACUMULADO.
+	ID_CONTA_TIT_PAGAR. Nome alterado para CONTA_TITULO_PAGAR.
+	ID_CONTA_TIT_RECEBER. Nome alterado para CONTA_TITULO_RECEBER.
+	ID_CONTA_JUROS_PASSIVO. Nome alterado para CONTA_JUROS_PASSIVO.
+	ID_CONTA_JUROS_ATIVOS. Nome alterado para CONTA_JUROS_ATIVO.
+	ID_CONTA_DESCONTO_OBITIDO. Nome alterado para CONTA_DESCONTO_OBTIDO.
+	ID_CONTA_DESCONTO_CONCEDIDO. Nome alterado para CONTA_DESCONTO_CONCEDIDO.
+	ID_CONTA_CMV. Nome alterado para CONTA_CMV.
+	ID_CONTA_VENDAS. Nome alterado para CONTA_VENDA.
+	ID_CONTA_VENDA_SERVICO. Nome alterado para CONTA_VENDA_SERVICO.
+	ID_CONTA_ESTOQUE. Nome alterado para CONTA_ESTOQUE.
+	ID_CONTA_APURA_RESULTADO. Nome alterado para CONTA_APURA_RESULTADO.
+	ID_CONTA_JUROS_APROPRIAR. Nome alterado para CONTA_JUROS_APROPRIAR.
+[*] Tabela CONTABIL_PARAMETROS. Campo ID_HIST_PADRAO_RESULT alterado para ID_HIST_PADRAO_RESULTADO.
+[+] Reinserida a tabela original: CONTABIL_FECHAMENTO.
+[+] Reinseridas as tabelas originais: CONTABIL_INDICE e CONTABIL_INDICE_VALOR.
+[*] Tabela FAP. Campo DATA_NICIAL alterado para DATA_INICIAL.
+[-] Tabela SOCIO_RESPONSAVEL_EMPRESA removida. Havia sido criada na unificação do DER, mas já existia
+	a tabela SOCIO.
+[-] Tabela RESPONSAVEL_SOCIO removida. Ela foi renomeada de RESPONSAVEL_LEGAL para REPONSAVEL_SOCIOS
+	na unificação do DER, mas o responsável legal pela empresa não precia ser um sócio. Dessa forma, 
+	o nome da tabela ficou confuso. Será mantida a modelagem inicial.
+[+] Tabela SOCIO reinserida conforme DER Contábil original.
+[*] Tabela SOCIO. Relacionamento a partir de PESSOA. Retirados campos desnecessários por conta do relacionamento.
+[*] Tabela EMPRESA_PESSOA. Inserido o campo RESPONSAVEL_LEGAL para informar se a PESSOA é o 
+	Responsável Legal pela Empresa.
+[+] Tabela PARTICIPACAO_SOCIETARIA reinserida conforme DER Contábil original.
+[*] Tabela PARTICIPACAO_SOCIETARIA. Nome alterado para SOCIO_PARTICIPACAO_SOCIETARIA.
+[+] Tabela QUADRO_SOCIETARIO reinserida conforme DER Contábil original.
+[*] Tabela CONTABIL_HISTORICO. Campo HISTORICO alterado para VARCHAR(250).
+[*] Tabela LANCAMENTO_PADRAO. Campo HISTORICO alterado para VARCHAR(250).
+[*] Tabela LANCAMENTO_PADRAO. Nome alterado para CONTABIL_LANCAMENTO_PADRAO.
+[*] Tabela CONTABIL_LANCAMENTO_DET. Campo HISTORICO alterado para VARCHAR(250).
+[*] Tabela CONTABIL_LANCAMENTO_DET. Nome alterado para CONTABIL_LANCAMENTO_DETALHE.
+[*] Tabela CONTABIL_LANCAMENTO_CAB. Nome alterado para CONTABIL_LANCAMENTO_CABECALHO.
+[+] Tabela CONTABIL_TERMO. Inserido o campo ABERTURA_ENCERRAMENTO para indicar o tipo de termo.
+[*] Tabela FUNCAO. Campos NOME e FORMULARIO alterados para VARCHAR(100)
+
+
+Versão 1.0.0.15 - 16/08/2012
+-----------------------------
+[*] Relacionamento entre FOLHA_EVENTO e FOLHA_LANCAMENTO_CABECALHO desfeito.
+[*] Relacionamento entre FOLHA_EVENTO e FOLHA_LANCAMENTO_DETALHE realizado.
+[*] Tabela CONVENIO. Inserido o campo CEP.
+[*] Tabela TRIBUT_ISS. Campo MODALIDADE_BC alterado para CHAR(1).
+[*] Tabela REQUISICAO_INTERNA_DETALHE. Campo ID_REQUISICAO_INTERNA_CABECALHO
+    alterado para ID_REQ_INTERNA_CABECALHO.
+[*] Tabela COLABORADOR. Campo PIS_NUMERO alterado para VARCHAR(12).
+[*] Tabela FERIAS_PERIODO_AQUISITIVO. Campo DATA_FIM alterado para DATE.
+
+
+Versão 1.0.0.14 - 08/08/2012
+-----------------------------
+[*] Tabela PONTO_BANCO_HORAS. Campo DATA_TRABALHO alterado de INTEGER para DATE
+[*] Tabela PONTO_TIPO_MARCACAO. Inserido campo NOME VARCHAR(50)
+[*] Tabela PONTO_MARCACAO. Inserido campo JUSTIFICATIVA VARCHAR(100)
+[*] Tabela PARCELA_RECEBIMENTO. Criado relacionamento a partir da tabela CONTA_CAIXA.
+
+
+Versão 1.0.0.13 - 26/06/2012
+-----------------------------
+[*] Tabela NATUREZA_FINANCEIRA. Nome do campo CLASSIFICASSAO alterado para CLASSIFICACAO
+
+
+Versão 1.0.0.12 - 21/05/2012
+-----------------------------
+[*] Tabela PATRIMONIO_TAXA_DEPRECIACAO. Nome alterado para PATRIM_TAXA_DEPRECIACAO.
+[*] Tabela PATRIM_TAXA_DEPRECIACAO. Campo NCM alterado de VARCHAR(14) para VARCHAR(8).
+[*] Tabela PATRIMONIO_INDICE_ATUALIZACAO. Nome alterado para PATRIM_INDICE_ATUALIZACAO.
+[*] Tabela GRUPO_BEM_PATRIMONIAL. Nome alterado para PATRIM_GRUPO_BEM.
+[*] Tabela DEPRECIACAO_BEM. Nome alterado para PATRIM_DEPRECIACAO_BEM.
+[*] Tabela BEM_PATRIMONIAL. Nome alterado para PATRIM_BEM.
+[*] Tabela DOCUMENTO_BEM. Nome alterado para PATRIM_DOCUMENTO_BEM.
+[*] Tabela MOVIMENTACAO_BEM. Nome alterado para PATRIM_MOVIMENTACAO_BEM.
+[*] Tabela TIPO_MOVIMENTACAO_BEM. Nome alterado para PATRIM_TIPO_MOVIMENTACAO.
+[*] Tabela APOLICE_SEGURO. Nome alterado para PATRIM_APOLICE_SEGURO.
+[*] Tabela TIPO_AQUISICAO_BEM. Nome alterado para PATRIM_TIPO_AQUISICAO_BEM.
+[*] Tabela ESTADO_CONSERVACAO_BEM. Nome alterado para PATRIM_ESTADO_CONSERVACAO.
+[*] Tabela PATRIM_GRUPO_BEM. Campos CONTA_ATIVO_IMOBILIZADO, CONTA_DEPRECIACAO_ACUMULADA,
+	CONTA_DESPESA_DEPRECIACAO, CODIGO_HISTORICO alterados de INTEGER para VARCHAR(30)
+[*] Tabela PATRIM_TIPO_AQUISICAO_BEM. Campo DESCRICAO alterado de VARCHAR(20) para TEXT
+[*] Tabela PATRIM_TIPO_AQUISICAO_BEM. Inserido Campo NOME VARCHAR(50)
+[*] Tabela SOCIO_DEPENDENTE. Campo NOME alterado de INTEGER para VARCHAR(100)
+
+
+Versão 1.0.0.11 - 09/05/2012
+-----------------------------
+[*] Tabela COLABORADOR. Retirado o campo TIPO_SANGUINEO. Já existe o campo
+	TIPO_SANGUE na tabela PESSOA_FISICA.
+[*] Tabela PRODUTO. Retirado o campo NBM.
+
+
+Versão 1.0.0.10 - 26/04/2012
+-----------------------------
+[*] Tabela NFE_EMITENTE. Incluído o campo EMAIL.
+[*] Tabela CONTAGEM_ESTOQUE_CABECALHO. Campo DATA_CONTAGEM alterado de 
+	INTEGER para DATE.
+[*] Tabela HISTORICO_REAJUSTE_DETALHE. Inseridos os campos: VALOR_ORIGINAL
+	e VALOR_REAJUSTE.
+
+
+Versão 1.0.0.9 - 24/04/2012
+-----------------------------
+[*] Alterados os nomes dos campos de chave estrangeira das tabelas de tributação
+	para ficarem de acordo com a nova nomenclatura dos nomes das tabelas.
+[*] Retirado o campo HASH_TRIPA da tabela PRODUTO. O campo ficará presente apenas
+	na tabela PRODUTO do banco de dados do PAF e deverá ser devidademente calculado
+	no momento da sincronização dos dados da retaguarda para o PAF.
+
+
+Versão 1.0.0.8 - 19/04/2012
+-----------------------------
+[*] Exclusão das antigas tabelas de tributação: BASE_CALCULO_REDUZIDA,
+	TRIBUTACAO_ESTADUAL, TRIBUTACAO_FEDERAL, IMPOSTO_ST_UF, ICMS_INTERESTADUAL
+[*] Alteração no nome das seguintes tabelas:
+	- de IMPOSTO_ICMS para TRIBUT_IMPOSTO_ICMS;
+	- de TRIB_COFINS_COD_APURACAO para TRIBUT_COFINS_COD_APURACAO;
+	- de TRIBUTACAO_ISS para TRIBUT_ISS;
+	- de OPERACAO_FISCAL para TRIBUT_OPERACAO_FISCAL;
+	- de ICMS_CUSTOMIZADO para TRIBUT_ICMS_CUSTOMIZADO;
+	- de TRIBUTACAO_ICMS para TRIBUT_ICMS;
+	- de TRIBUTACAO_IPI_DIPI para TRIBUT_IPI_DIPI;
+	- de TRIBUTACAO_ICMS_UF para TRIBUT_ICMS_UF;
+	- de TRIBUTACAO_IPI para TRIBUT_IPI;
+	- de TRIBUTACAO_COFINS para TRIBUT_COFINS;
+	- de TRIBUTACAO_PIS para TRIBUT_PIS;
+	- de TRIB_PIS_COD_APURACAO para TRIBUT_PIS_COD_APURACAO;
+	- de GRUPO_TRIBUTARIO para TRIBUT_GRUPO_TRIBUTARIO;
+[*] Alteração em campos nas tabela acima. Os campos que continham ALIQ
+	se referindo a ALIQUOTA foram alterados. 
+	Exemplo:
+	- ALIQ_IMPOSTO alterado para ALIQUOTA_IMPOSTO.
+[*]	Tabela EMITENTE_CHEQUE. Retirado o campo ID_PESSOA. Criado o devido
+	relacionamento com a tabela PESSOA.
+
+	
+Versão 1.0.0.7 - 11/04/2012
+-----------------------------
+[*] Alterações na tabela ORCAMENTO_PEDIDO_VENDA_CAB. Retirada a obrigação de 
+	armazenar o ID da transportadora.
+[*] Alterações na tabela VENDA_CABECALHO. Incluído relacionamento a partir
+	da tabela TRANSPORTADORA.
+[*] Alterações na tabela CONTRATO_TIPO_SERVICO. Campo TIPO excluído.
+[*] Alterações na tabela TIPO_CONTRATO. Campo TIPO excluído.
+[*] Alterações na tabela CONTRATO. Campo DIA_PRIMEIRO_FATURAMENTO alterado para
+	DIA_FATURAMENTO.
+
+
+Versão 1.0.0.6 - 04/04/2012
+-----------------------------
+[*] Alterações na tabela SEFIP_CATEGORIA_TRABALHO. Campo NOME alterado de
+	VARCHAR(100) para TEXT.
+[*] Alterações na tabela SEFIP_CODIGO_RECOLHIMENTO. Campo DESCRICAO alterado de
+	VARCHAR(250) para TEXT.
+[*] Alterações na tabela SEFIP_CODIGO_MOVIMENTACAO. Campo DESCRICAO alterado de
+	VARCHAR(250) para TEXT.
+[*] Alterações na tabela CST_PIS. Campo DESCRICAO alterado de VARCHAR(100) para 
+	VARCHAR(250).
+[*] Alterações na tabela DOCUMENTO_ORIGEM. Campo SIGLA_DOCUMENTO alterado de CHAR(3) para 
+	CHAR(10). Campo DESCRICAO alterado de VARCHAR(30) para TEXT.
+[*] Alterações na tabela NCM. Campo DESCRICAO alterado de VARCHAR(250) para TEXT.
+[*] Alterações nas tabelas SPED_PIS_????. Campo DESCRICAO alterado de VARCHAR(250) para TEXT.
+[*] Alterações na tabela TIPO_RELACIONAMENTO. Campo NOME alterado de VARCHAR(20) para VARCHAR(100).
+[*] Alterações na tabela GED_VERSAO_DOCUMENTO. Descrição do campo HASH alterado para HASH_ARQUIVO.
+[*] Alterações na tabela CLIENTE. Retirados os campos: NUMERO_DIAS_PRIMEIRO_VENCIMENTO,
+	NUMERO_DIAS_INTERVALO_PARCELAS, QUANTIDADE_PARCELAS. Essas informações estão na tabela
+	CONDICOES_PAGAMENTO do financeiro. 
+[*] Alterações na tabela VENDA_CABECALHO. Campo VALOR_SUB_TOTAL alterado para VALOR_SUBTOTAL.
+	
+
+Versão 1.0.0.5 - 02/04/2012
+-----------------------------
+[*] Alterações na tabela TIPO_NOTA_FISCAL. Tabela ficou igual à original, que
+	pode ser vista no DER Vendas. O objetivo dessa tabela é armazenar os tipos
+	de notas fiscais.
+[*] Alterações na tabela CONDICOES_PARCELAS. Removido o campo INTERVALO_PARCELA.
+	Demais campos alterados para valores originais do DER Vendas.
+[*] Alterações na tabela CONDICOES_PARCELAS. Removido o campo INTERVALO_PARCELA.
+	Demais campos alterados para valores originais do DER Vendas.
+[*] Alterações na tabela VENDA_CABECALHO. 
+	Retirados os campos: NUMERO_DIAS_PRIMEIRO_VENCIMENTO, INTERVALO_DIAS_PARCELAS,
+	QUANTIDADE_PARCELAS. Essas informações já estarão armazenadas nas tabelas
+	CONDICOES_PAGAMENTOS, CONDICOES_PARCELAS.
+	
+
+
+Versão 1.0.0.4 - 28/03/2012
+-----------------------------
+[*] Alterações na tabela AGENCIA_BANCO. Campo OBS alterado para OBSERVACAO;
+
+
+Versão 1.0.0.3 - 26/03/2012
+-----------------------------
+[*] Alterações na tabela PESSOA. Inclusão de novos campos para facilitar consultas.
+[*] Alterações na tabela PESSOA_FISICA. Campo TITULO_ELEITORAL_NUMERO alterado para 
+	VARCHAR(20);
+[*] Alterações na tabela PESSOA_FISICA. Campo RESERVISTA_NUMERO alterado para 
+	VARCHAR(20);
+[*] Alterações na tabela PESSOA_JURIDICA. Campo CRT alterado para CHAR(1);
+[+] Alterações na tabela PESSOA_JURIDICA. Inserido o campo TIPO_REGIME CHAR(1);
+[*] Alterações na tabela AGENCIA_BANCO. Campo TELEFONE alterado para VARCHAR(14);
+[*] Alterações na tabela RESPONSAVEL_SOCIO. Campo TELEFONE alterado para VARCHAR(14);
+[*] Alterações na tabela SEGURADORA. Campo TELEFONE alterado para VARCHAR(14);
+[*] Alterações na tabela CONTADOR. Campo TELEFONE alterado para VARCHAR(14);
+
+
+Versão 1.0.0.2 - 21/03/2012
+-----------------------------
+[*] Alterado o nome do índice FK_BEM_PATRIMONIAL_APOLICE na tabela MOVIMENTACAO_BEM
+	para FK_BEM_PATRIM_MOVIMENTACAO
+[*] Tabela FOLHA_VALE_TRANSPORTE: Campo ID_EMPRESA_TRANSPORTE_ITINERARIO alterado
+	para ID_EMPRESA_TRANSP_ITIN.
+[*] Tabela GED_TIPO_DOCUMENTO, campo TAMANHO_MAXIMO alterado para DECIMAL(18,6)
+[*] Tabela PLANO_CONTAS e seus relacionamentos alterados para PLANO_CONTA
+[*] Tabela PESSOA. Campo NOME_RAZAO renomeado para NOME.
+
+
+Versão 1.0.0.1 - 20/03/2012
+-----------------------------
+[*] Alterado o nome do índice e relacionamento FK_EMPRESA_TRANSP_ITINERARIO
+[*] Alterados os nomes dos campos abaixo, pois o Firebird não aceito campos
+	iniciados por números. O número foi posto no final do nome do campo e se
+	refere ao décimo terceiro salário (tabela FOLHA_PARAMETROS):
+	13_DESCONTAR_FALTAS CHAR(1)
+	13_PAGAR_ADICIONAIS CHAR(1)
+	13_PAGAR_ESTAGIARIOS CHAR(1)
+	13_MES_ADIANTAMENTO CHAR(2)
+	13_PERCENTUAL_ADIANTAM DECIMAL(18,6)
+[*] Alterado o nome do índice e relacionamento FK_PRODUTO_VENDA_DET na tabela
+	ORCAMENTO_PEDIDO_VENDA_DET. Estava igual ao nome de outra tabela. Renomeado
+	para FK_PRODUTO_ORC_VENDA_DET.
+[*] A tabela FOLHA_AFASTAMENTOS estava com um índice com nome incorreto:
+	FK_EMPRESA_FOLHA_FECHAMENTO. Alterado para FK_FOLHA_TIPO_AFASTAMENTO.
+[*] Nome da tabela FOLHA_AFASTAMENTOS alterado para FOLHA_AFASTAMENTO.
+[*] Tabela COLABORADOR: permissão para alguns campos referentes a chaves 
+	estrangeiras receberem valores nulos.
+[+] Inseridas as tabelas DAV_CABECALHO, DAV_DETALHE, PRE_VENDA_CABECALHO e
+	PRE_VENDA_DETALHE.
+[*] Reanálise das tabelas. Alguns campos foram marcados para aceitar valores
+	nulos na chave estrangeira.
+[*] Tabelas APOLICE_SEGURO e BEM_PATRIMONIAL estavam com o relacionamento 
+	invertido. Corrigido.
+[*] Tabelas MOVIMENTACAO_BEM e BEM_PATRIMONIAL estavam com o relacionamento 
+	invertido. Corrigido.
+[*] Retirado o vínculo entre CBO e CARGO. Tabela CBO passa a ser para consulta
+	e armazena o código principal de 2002 e o código anterior de 1994.
+[*] Alterados os nomes das tabelas do módulo COMPRAS. O nome COMPRA se encontra
+	no início de cada tabela.
+[*] Mantida a separação das tabelas CST_ICMS_A e CST_ICMS_B
+[+] Criada a separação das tabelas CSOSN_A e CSOSN_B
+[*] Tabela FPAS - campo CODIGO_FPAS alterado para CODIGO. 
+[*] Tabela FPAS - campo ALIQ_SAT alterado para ALIQUOTA_SAT. 
+[*] Tabelas OLAP do PAF renomeadas para iniciar com ECF_
+
+
+Versão 1.0.0.0 - 16/03/2012
+-----------------------------
+[+] Primeira versão do DER Unificado. Descrição completa no EAD.
