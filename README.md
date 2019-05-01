@@ -4,10 +4,11 @@
         				<h1>T2Ti ERP 1.0 - Documentação</h1>
         			</div>
         			<div class="conteudoTexto">
-    					<img class="img-responsive center-block" src="http://t2ti.com/images/erp/t2ti_erp.jpg" />
+				<center>
+    					<img class="img-responsive center-block" src="http://t2ti.com/images/erp/t2ti_erp.jpg" /></center>
         				<br />				
         				<h3>Bloco Administrativo</h3> 
-        				<br />
+        				<hr />
 						<b>O Bloco Administrativo é formado por dois módulos: </b>
 						<ul>
 							<li>
@@ -20,7 +21,7 @@
 						</ul>
         				<br />
         <h3>Bloco Comercial</h3> 
-        				<br />
+        				<hr />
 						<b>O Bloco Comercial é formado por três módulos: </b>
 						<ul>
 							<li>
