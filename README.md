@@ -5,7 +5,8 @@
         			</div>
         			<div class="conteudoTexto">
 				<center>
-    					<img class="img-responsive center-block" src="http://t2ti.com/images/erp/t2ti_erp.jpg" /></center>
+    					<img src="http://t2ti.com/images/erp/t2ti_erp.jpg" />
+				</center>
         				<br />				
         				<h3>Bloco Administrativo</h3> 
         				<hr />
