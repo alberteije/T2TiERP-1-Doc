@@ -3,10 +3,10 @@
         			<div class="titulo_bloco">
         				<h1>T2Ti ERP 1.0 - Documentação</h1>
         			</div>
+        			<div class="conteudoTexto">
 				<center>
     					<img src="http://t2ti.com/images/erp/t2ti_erp.jpg" />
 				</center>
-        			<div class="conteudoTexto">
         				<br />				
         				<h3>Bloco Administrativo</h3> 
         				<hr />
@@ -40,7 +40,7 @@
 						</ul>
         				<br />
         				<h3>Bloco Financeiro</h3> 
-        				<br />
+        				<hr />
 						<b>O Bloco Financeiro é formado por sete módulos: </b>
 							<ul>
 								<li>
@@ -68,7 +68,7 @@
 							<a href="http://t2ti.com/erp/artigos/Financeiro.pdf" target="_blank">Clique aqui e leia o Artigo T2Ti sobre o Bloco Financeiro.</a>
         				<br />
         				<h3>Bloco Contábil e Fiscal</h3> 
-        				<br />
+        				<hr />
 						<b>O Bloco Contábil e Fiscal é formado por sete módulos: </b>
 						<ul>
 							<li>
@@ -102,7 +102,7 @@
 						</ul>
         				<br />
         				<h3>Bloco Recursos Humanos</h3> 
-        				<br />
+        				<hr />
 						<b>O Bloco Recursos Humanos é formado por dois módulos: </b>
 						<ul>
 							<li>
@@ -116,7 +116,7 @@
 						</ul>
         				<br />
         				<h3>Bloco Suprimentos</h3> 
-        				<br />
+        				<hr />
 						<b>O Bloco Suprimentos é formado por três módulos: </b>
 						<ul>
 							<li>
