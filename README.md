@@ -2,6 +2,7 @@
         		<div class="bloco">
         			<div class="titulo_bloco">
         				<h1>T2Ti ERP 1.0 - Documentação</h1>
+					Aqui é possível baixar a documentação do Projeto T2Ti ERP 1.0. Este treinamento formou milhares de desenvolvedores no Brasil e ajudou centenas deles a lançar seu próprio ERP no mercado.
         			</div>
         			<div class="conteudoTexto">
 				<center>
