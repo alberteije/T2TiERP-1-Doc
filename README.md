@@ -3,10 +3,10 @@
         			<div class="titulo_bloco">
         				<h1>T2Ti ERP 1.0 - Documentação</h1>
         			</div>
-        			<div class="conteudoTexto">
 				<center>
     					<img src="http://t2ti.com/images/erp/t2ti_erp.jpg" />
 				</center>
+        			<div class="conteudoTexto">
         				<br />				
         				<h3>Bloco Administrativo</h3> 
         				<hr />
